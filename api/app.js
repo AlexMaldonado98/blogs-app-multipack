@@ -27,7 +27,7 @@ mongoose.connect(MONGODB_URI)
 app.use(cors());
 app.use(express.json());
 app.use(morgan(':method :url :status :res[content-length] :response-time ms :data'));
-app.use(express.static('../app/build'));
+app.use(express.static('../app/dist'));
 app.use(middleware.tokenExtractor);
 
 app.use('/api/blogs',blogsRouter);

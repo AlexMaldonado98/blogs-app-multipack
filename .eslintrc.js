@@ -21,6 +21,7 @@ module.exports = {
     'plugins': [
         'react', 'jest', 'cypress'
     ],
+    'ignorePatterns': ['dist'],
     'rules': {
         'indent': [
             'error',
