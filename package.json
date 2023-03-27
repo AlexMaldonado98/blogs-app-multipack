@@ -1,7 +1,11 @@
 {
+  "engines": {
+    "node": "16.19.1",
+    "npm": "9.5.1"
+  },
   "name": "blogs-app",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "workspaces": [
     "api",
@@ -9,13 +13,16 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1 ",
-    "build": "npm run build --workspaces=app",
-    "start:app": " npm run start2 --workspaces=app ",
-    "dev": "npm run dev --workspaces=api",
-    "dev:api": "npm run build --workspaces=app && npm run dev --workspaces=api",
-    "dev:app": "npm run start --workspaces=app && npm run dev --workspaces=api",
-    "eslint": "eslint ./api ./app"
+    "test": "npm run test --workspace=api",
+    "test:e2e": "npm run cypress:open --workspace=app",
+    "start:test": "npm run start:test --workspace=api",
+    "build": "npm run build --workspace=app",
+    "start:api": "npm run start --workspace=api",
+    "start": "npm run start --workspace=app ",
+    "dev": "npm run dev --workspace=api",
+    "dev:api": "npm run build --workspace=app && npm run dev --workspace=api",
+    "dev:app": "npm run start --workspace=app && npm run dev --workspace=api",
+    "eslint": "eslint ./api ./app ./**/*.{js,jsx}"
   },
   "eslintConfig": {
     "extends": [

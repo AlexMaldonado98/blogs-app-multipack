@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 let MONGODB_URI = process.env.MONGODB_URI;
-let PORT = process.env.PORT;
+let PORT = process.env.PORT || 8080;
 const SECRET = process.env.SECRET;
 
 if(process.env.NODE_ENV === 'test'){

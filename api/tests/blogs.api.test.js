@@ -21,12 +21,10 @@ beforeEach(async () => {
 
 describe('Initial blogs',() => {
     test('are required', async () => {
-        const response = await api
+        await api
             .get('/api/blogs')
             .expect(200)
             .expect('Content-Type', /application\/json/);
-
-        console.log('GET',response);
     });
 
     test('are called id', async () => {
@@ -44,7 +42,7 @@ describe('Adding', () => {
     let token = null;
     beforeAll(async () => {
         await User.deleteMany({});
-        const passwordWithHash = await bcrypt.hash('testpass',10);
+        const passwordWithHash = await bcrypt.hash('testpass',5);
         const user = await new User({ username:'testname', passwordHash:passwordWithHash,name:'testname' }).save();
         const infoToken = { username:user.username,id: user._id };
         return token = jwt.sign(infoToken,config.SECRET);
