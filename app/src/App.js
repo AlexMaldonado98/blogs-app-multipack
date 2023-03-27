@@ -51,7 +51,7 @@ const App = () => {
         <Container sx={{ padding:'10px' }} >
             <Notifications />
             <Menu />
-            <h1>create new</h1>
+            <h1>create new blog</h1>
             <Togglable button={'New Blog'} ref={toggleRef} >
                 <BlogForm/>
             </Togglable>
